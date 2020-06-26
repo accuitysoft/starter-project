@@ -8,12 +8,10 @@ body {
 
 .navbar-light a{
   font-weight: bold;
-  
 }
 
 .navbar-light {
   background-color: white;
-  
 }
 
 nav .navbar-nav li a{
@@ -27,6 +25,7 @@ nav .navbar-nav li a:hover{
 nav .navbar-nav li .active{
   color: red !important;
 }
+
 
 .home-image{
   max-height: 500px;
