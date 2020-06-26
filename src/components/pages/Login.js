@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { Container, Col, Row, Button, Form, FormGroup, Label, Input, Card, CardBody, CardText } from 'reactstrap'
 import { useHistory, useLocation } from 'react-router-dom'
 
-const Login = () => {
+const Login = (props) => {
     let history = useHistory();
     let location = useLocation();
+
+    //Note that original FS1020 course project used "email" for authentication, the req.body.email has been changed to req.body.username.
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [auth, setAuth] = useState(true)
@@ -25,8 +27,8 @@ const Login = () => {
             setAuth(false)
         } else {
             sessionStorage.setItem('token', payload.token)
-
-            let { from } = location.state || { from: { pathname: "/" } };
+            let { from } = location.state || { from: { pathname: "/submissions" } };
+            props.setLoggedIn(true);
             history.replace(from);
         }
     }

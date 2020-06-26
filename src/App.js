@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Navigation from './components/shared/Navigation'
 import Footer from './components/shared/footer'
@@ -13,16 +13,26 @@ import Listing from './components/pages/Listing'
 import PrivateRoute from './components/shared/PrivateRoute'
 
 function App() {
+  
+  const [loggedIn, setLoggedIn] = useState(false)
+
+  const logout = event => {
+    setLoggedIn(false);
+}
+
   return (
    <BrowserRouter>
-        <Navigation />
+        <Navigation {...{loggedIn}} logout={logout}/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/blogpost" component={BlogPost} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/login" render={
+            (props) => <Login {...{setLoggedIn, ...props}} />
+          } 
+          />
           <PrivateRoute path="/submissions">
             <Listing />
           </PrivateRoute>

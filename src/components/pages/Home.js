@@ -35,7 +35,7 @@ const Home = () => {
                         <p>As a Vice President of Finance of a construction company, I have used a combination of operational and financial data to drive many of the business process changes. Taking concepts from The Lean Startup, our team actively monitors business decisions, reiterating and refining processes based on data.</p>
                         <div className="button">
                             <form action="/about/">
-                            <Button color="primary">Learn More</Button>
+                                <Button color="primary">Learn More</Button>
                             </form>
                         </div>
                     </div>
