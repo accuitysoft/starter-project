@@ -11,6 +11,8 @@ import BlogPost from './components/pages/BlogPost'
 import Login from './components/pages/Login'
 import Listing from './components/pages/Listing'
 import PrivateRoute from './components/shared/PrivateRoute'
+import Users from './components/pages/Users'
+import Page from './components/shared/page'
 
 function App() {
   
@@ -24,7 +26,11 @@ function App() {
    <BrowserRouter>
         <Navigation {...{loggedIn}} logout={logout}/>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={
+            (props) => <Page title="Shane Lee">
+              <Home {...props}/>
+            </Page>
+          } />
           <Route exact path="/about" component={About} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/blog" component={Blog} />
@@ -35,6 +41,9 @@ function App() {
           />
           <PrivateRoute path="/submissions">
             <Listing />
+          </PrivateRoute>
+          <PrivateRoute path="/users">
+            <Users />
           </PrivateRoute>
         </Switch>
         <Footer />  
