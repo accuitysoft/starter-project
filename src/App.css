@@ -185,7 +185,7 @@ nav .navbar-nav li .active{
 .timeline {
   padding-top: 3em;
   background-color:#FFF;
-  min-height:300vh;
+  min-height:200vh;
   margin:0;
   font-family: 'Droid Sans', sans-serif;
   position: relative;
@@ -376,7 +376,7 @@ nav .navbar-nav li .active{
 
 .error{
   background-color: lightcoral;
-  color: red;
+  color: darkred;
 }
 
 .form-check button{
@@ -424,6 +424,17 @@ nav .navbar-nav li .active{
 /* create user page */
 
 .createUser {
+  
+  box-shadow: 2px 2px 15px lightgrey;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  height: 80vh;
+  
+}
+
+/* Listing */
+
+.listing {
   
   box-shadow: 2px 2px 15px lightgrey;
   padding-top: 3em;
