@@ -18,6 +18,7 @@ function App() {
   
   const [loggedIn, setLoggedIn] = useState(false)
 
+  // Need to lift state in order to reflect logged in on Navbar as well as Routes. 
   const logout = event => {
     setLoggedIn(false);
 }
