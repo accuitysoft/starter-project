@@ -6,6 +6,8 @@ body {
   padding-top: 70px;
 }
 
+
+/* Nav bar */
 .navbar-light a{
   font-weight: bold;
 }
@@ -26,7 +28,7 @@ nav .navbar-nav li .active{
   color: red !important;
 }
 
-
+/* home page */
 .home-image{
   max-height: 500px;
 }
@@ -107,19 +109,19 @@ nav .navbar-nav li .active{
       }
 
 
-.card img{
+.blog-post .card img{
   height: 250px;
 }
 
-.card-title{
+.blog-post .card-title{
   font-weight: bold;
 }
 
-.card:hover{
+.blog-post .card:hover{
   box-shadow: 10px 10px 10px lightgrey;
 }
 
-.card span{
+.blog-post .card span{
   position:absolute; 
   width:100%;
   height:100%;
@@ -183,7 +185,7 @@ nav .navbar-nav li .active{
 .timeline {
   padding-top: 3em;
   background-color:#FFF;
-  min-height:200vh;
+  min-height:300vh;
   margin:0;
   font-family: 'Droid Sans', sans-serif;
   position: relative;
@@ -296,13 +298,29 @@ nav .navbar-nav li .active{
   box-shadow: 5px 5px 5px 10px lightgrey;
   margin: 30px;
   display: flex;
-
+  position: relative;
 }
 
 .blog-card img{
   height: 300px;
   width: 450px;
   
+}
+
+.blog-card span{
+  position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+  z-index: 1;
+  
+  /* fixes overlap error in IE7/8 */
+  background-image: url('/img/empty.png');
+}
+
+.blog-card span:hover{
+  background-color: rgba(0,0,0,0.2);
 }
 
 .blog-card-text{
@@ -340,6 +358,17 @@ nav .navbar-nav li .active{
 }
 
 /* Contact form */
+
+.contact {
+  box-shadow: 2px 2px 15px lightgrey;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  height: 80vh;
+}
+.contact h1{
+  text-align: center;
+}
+
 .success{
   background-color: lightgreen;
   color: green;
@@ -348,4 +377,57 @@ nav .navbar-nav li .active{
 .error{
   background-color: lightcoral;
   color: red;
+}
+
+.form-check button{
+  
+  width: 100px;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  transition: all .3s ease-in;
+  }
+  .form-check button:hover{
+    background-color: red;
+    transition: all .3s ease-in;
+    }
+
+/* Login page */
+.login {
+  box-shadow: 2px 2px 15px lightgrey;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  height: 80vh;
+  
+}
+
+.login .card{
+  max-width: 400px;
+  margin:auto;
+}
+
+.login button{
+  margin-left: 15px;
+  width: 100px;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  transition: all .3s ease-in;
+  }
+  .login button:hover{
+    background-color: red;
+    transition: all .3s ease-in;
+    }
+
+/* create user page */
+
+.createUser {
+  
+  box-shadow: 2px 2px 15px lightgrey;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  height: 80vh;
+  
 }
