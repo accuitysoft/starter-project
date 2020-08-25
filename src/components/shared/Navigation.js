@@ -28,7 +28,10 @@ const Navigation = (props) => {
                                 {props.loggedIn ? (
                                     <Nav className="ml-auto" navbar>
                                         <NavItem>
-                                            <NavLink tag={RouteLink}  to="/blog">Blog</NavLink>
+                                            <NavLink tag={RouteLink}  to="/editBlog">Edit Blog</NavLink>
+                                        </NavItem>
+                                        <NavItem>
+                                            <NavLink tag={RouteLink}  to="/editAbout">Edit Experience</NavLink>
                                         </NavItem>
                                         <NavItem>
                                             <NavLink tag={RouteLink}  to="/submissions">Submissions</NavLink>

@@ -1,9 +1,44 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGraduationCap, faBalanceScale, faPlane, faReply, faHandshake, faWrench, faUsers } from '@fortawesome/free-solid-svg-icons'
 
+
 const About = () => {
+
+    const [experience, setExperience] = useState([])
+    const [categories, setCategories] = useState([])
+
+    useEffect(()=>{
+        const getCategories = async () => {
+        const catResponse = await fetch('http://localhost:4000/experience/categories', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        const data = await catResponse.json()
+        setCategories(data)  
+        }
+        
+        const getExperience = async () => {
+        const expResponse = await fetch('http://localhost:4000/experience', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        const expData = await expResponse.json()
+        setExperience(expData)  
+        }
+
+        getCategories();
+        getExperience();
+        
+    }, [])
+
     return (
         <section>
             <div className="about-me-background">
@@ -20,26 +55,21 @@ const About = () => {
                             </Col>
                             <Col lg="1"></Col>
                             <Col lg="5" >
-                                <h2 className="font-weight-bold">Accounting Experience</h2>
-                                <span>Control Implementation</span>
-                                <span>Software Transition</span>
-                                <span>Audit Preparation</span>
-                                <span>Cashflow Management</span>
-                                <span>Management Report</span>
-                                <span>Credit Facility Application</span>
-                                <span>Workflow Implementation</span>
-                                <h2 className="font-weight-bold">Developer Experience</h2>
-                                <span>html</span>
-                                <span>CSS</span>
-                                <span>Javascript</span>
-                                <span>Express JS</span>
-                                <span>React</span>
-                                <span>SQL</span>
-                                <span>Git</span>
-
-                                <h2 className="font-weight-bold">Education</h2>
-                                <span>Chartered Accountant of Canada</span>
-                                <span>Honours BBA, Wilfrid Laurier University</span>
+                                {
+                                    categories.length > 0 &&
+                                        categories.map(catName => (
+                                            <div>
+                                            <h2 className="font-weight-bold" key={catName.category}>{catName.category}</h2> 
+                                            
+                                                {experience.map(expItem => (
+                                                    <div className="experience--div">
+                                                    { catName.category === expItem.category && <span>{expItem.experience}</span>}
+                                                    </div>
+                                                )) }
+                                            </div>
+                                        ))
+                                }
+                                
                             </Col>
                         </Row>
                     </div>

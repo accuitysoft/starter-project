@@ -13,6 +13,8 @@ import Listing from './components/pages/Listing'
 import PrivateRoute from './components/shared/PrivateRoute'
 import Users from './components/pages/Users'
 import Page from './components/shared/page'
+import EditAbout from './components/pages/EditAbout'
+import EditBlog from './components/pages/EditBlog'
 
 function App() {
   
@@ -36,6 +38,7 @@ function App() {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/blogpost" component={BlogPost} />
+         
           <Route exact path="/login" render={
             (props) => <Login {...{setLoggedIn, ...props}} />
           } 
@@ -46,6 +49,13 @@ function App() {
           <PrivateRoute path="/users">
             <Users />
           </PrivateRoute>
+          <PrivateRoute path="/editAbout">
+            <EditAbout />
+          </PrivateRoute> 
+          <PrivateRoute path="/editBlog">
+            <EditBlog />
+          </PrivateRoute> 
+          
         </Switch>
         <Footer />  
     </BrowserRouter>
