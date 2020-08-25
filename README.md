@@ -1,3 +1,6 @@
-# Overview
+Front end application for personal website.
 
-This project is an example implementation connecting backend including protected routes. It is assumed backend is running locally on port `4000`.
+This application should be run together with course-project.
+
+Please see course-project readme file to set up database prior to running this application. 
+

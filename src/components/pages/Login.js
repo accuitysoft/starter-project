@@ -23,6 +23,7 @@ const Login = (props) => {
       body: JSON.stringify({ username, password })
     })
     const payload = await response.json()
+    
     if (response.status >= 400) {
       setAuth(false)
     } else {
